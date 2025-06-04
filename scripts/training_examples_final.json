@@ -1,0 +1,22 @@
+[
+  {
+    "instruction": "List galaxies matching RA between 146.361 and 150.01, and DEC between -2.221 and -0.057, g - r color less than 0.22, r-band magnitude less than 2.46.",
+    "output": "SELECT TOP 10 p.objID, p.ra, p.dec, s.z AS redshift, p.u, p.g, p.r, p.i, p.z FROM PhotoObj AS p JOIN SpecObj AS s ON s.bestObjID = p.objID WHERE p.ra BETWEEN 146.361 AND 150.01 AND p.dec BETWEEN -2.221 AND -0.057 AND (p.g - p.r) < 0.22 AND p.r < 2.46"
+  },
+  {
+    "instruction": "Give me galaxies having AGN classification, g-band extinction less than 0.85, u - g color greater than 0.92.",
+    "output": "SELECT TOP 10 p.objID, p.ra, p.dec, s.z AS redshift, p.u, p.g, p.r, p.i, p.z, s.subClass, p.extinction_g FROM PhotoObj AS p JOIN SpecObj AS s ON s.bestObjID = p.objID WHERE (s.subClass = 'AGN' OR s.subClass = 'BROADLINE') AND p.extinction_g < 0.85 AND (p.u - p.g) > 0.92"
+  },
+  {
+    "instruction": "Give me galaxies having photometric type 3, within 0.14 degrees of RA=124.433, DEC=0.801, u-band magnitude greater than 17.03, u-band extinction greater than 16.71.",
+    "output": "SELECT TOP 10 p.objID, p.ra, p.dec, s.z AS redshift, p.u, p.g, p.r, p.i, p.z, p.type, p.extinction_g FROM PhotoObj AS p JOIN SpecObj AS s ON s.bestObjID = p.objID WHERE p.type = 3 AND p.objID IN (SELECT objID FROM dbo.fGetNearbyObjEq(124.433, 0.801, 0.14)) AND p.u > 17.03 AND p.extinction_u > 16.71"
+  },
+  {
+    "instruction": "Find galaxies with concentration index below 12.99, r - i color less than -0.19, AGN classification, within 0.13 degrees of RA=175.684, DEC=29.809.",
+    "output": "SELECT TOP 10 p.objID, p.ra, p.dec, s.z AS redshift, p.u, p.g, p.r, p.i, p.z, p.petroR90_r, p.petroR50_r, s.subClass FROM PhotoObj AS p JOIN SpecObj AS s ON s.bestObjID = p.objID WHERE (p.petroR90_r / p.petroR50_r) < 12.99 AND (p.r - p.i) < -0.19 AND (s.subClass = 'AGN' OR s.subClass = 'BROADLINE') AND p.objID IN (SELECT objID FROM dbo.fGetNearbyObjEq(175.684, 29.809, 0.13))"
+  },
+  {
+    "instruction": "Show galaxies that meet u-band extinction greater than 14.07, concentration index above 9.16, redshift between 0.063 and 0.197, photometric type 3.",
+    "output": "SELECT TOP 10 p.objID, p.ra, p.dec, s.z AS redshift, p.u, p.g, p.r, p.i, p.z, p.extinction_g, p.petroR90_r, p.petroR50_r, p.type FROM PhotoObj AS p JOIN SpecObj AS s ON s.bestObjID = p.objID WHERE p.extinction_u > 14.07 AND (p.petroR90_r / p.petroR50_r) > 9.16 AND s.z BETWEEN 0.063 AND 0.197 AND p.type = 3"
+  }
+]

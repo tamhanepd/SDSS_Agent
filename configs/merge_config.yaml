@@ -1,0 +1,4 @@
+base_model: microsoft/phi-2
+lora_path: models/lora_weights/phi-2-method-1-v3
+output_path: models/merged/phi-2-method-1-v3
+quantized_filename: models/ollama_ready/phi-2-method-1/phi2_sdss.Q4_K_M.gguf

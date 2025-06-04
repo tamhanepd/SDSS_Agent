@@ -1,0 +1,14 @@
+model_name: microsoft/phi-2
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  task_type: CAUSAL_LM
+training:
+  batch_size: 1
+  num_epochs: 7
+  output_dir: models/lora_weights/phi-2-method-2-v2
+  logging_steps: 10
+  save_strategy: epoch
+  logging_dir: logs
+  report_to: "none"

@@ -1,0 +1,4 @@
+ollama_model_name: sdss-phi2
+ollama_url: http://localhost:11434/api/generate
+skyserver_url: https://skyserver.sdss.org/dr16/SkyServerWS/SearchTools/SqlSearch
+sql_result_format: csv
