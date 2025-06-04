@@ -1,0 +1,19 @@
+# Core libraries
+torch>=2.0
+transformers>=4.35.0
+datasets>=2.14.0
+accelerate>=0.23.0
+
+# LoRA fine-tuning
+peft>=0.6.2
+bitsandbytes>=0.41.1  # use bitsandbytes-windows if on Windows
+
+# Inference UI
+streamlit>=1.28.0  # or gradio>=3.50.2
+
+# Utils and logging
+scipy
+pandas
+tqdm
+jsonlines
+
