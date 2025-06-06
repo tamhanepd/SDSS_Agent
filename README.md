@@ -23,11 +23,6 @@ See `requirements.txt` for all necessary packages.
 python scripts/train_phi2_lora.py
 ```
 
-## 💬 Inference
-```bash
-python scripts/run_inference.py
-```
-
 ## 🧪 Test Prompt (Few-shot)
 ```
 User: Show galaxies with redshift < 0.03 and g–r color > 0.4.
