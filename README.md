@@ -23,6 +23,11 @@ See `requirements.txt` for all necessary packages.
 python scripts/train_phi2_lora.py
 ```
 
+## Fine-tuned Model
+
+The fine-tuned model can be found at [tamhanepd/phi-2-nl-to-sql-sdss](https://huggingface.co/tamhanepd/phi-2-nl-to-sql-sdss).
+
+
 ## 🧪 Test Prompt (Few-shot)
 ```
 User: Show galaxies with redshift < 0.03 and g–r color > 0.4.
